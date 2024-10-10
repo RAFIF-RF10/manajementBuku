@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class LoansController extends Controller
 {
-   
+
+    public function loan(){
+            
+    }
 
 }
 
