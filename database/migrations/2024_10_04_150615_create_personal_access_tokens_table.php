@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable();
             $table->unsignedBigInteger('tokenable_id');
             $table->string('tokenable_type');
+            $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
         });
     }

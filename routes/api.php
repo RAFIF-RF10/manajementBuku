@@ -16,7 +16,8 @@ Route::prefix('auth')->group(function(){
 });
 
 
-Route::post('user', [LoansController::class, 'store']);
+Route::post('book/loan', [LoansController::class, 'loan'])->middleware('auth:sanctum');
+Route::post('book/return', [LoansController::class, 'returnBook'])->middleware('auth:sanctum');
 
 // Route resource untuk book, author, dan category
 Route::resource('book', BookController::class);

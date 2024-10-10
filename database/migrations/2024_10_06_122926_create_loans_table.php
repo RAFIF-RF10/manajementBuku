@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('book_id');
+            $table->date('borrowed_at');
+            $table->date('returned_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('book_id')->references('id')->on('books')->cascadeOnDelete()->cascadeOnUpdate();
+
         });
     }
 
